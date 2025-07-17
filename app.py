@@ -13,7 +13,11 @@ try:
 except ImportError:
     subprocess.check_call(["pip", "install", "sentence-transformers"])
     from sentence_transformers import SentenceTransformer
-
+try:
+    from sklearn.linear_model import LogisticRegression
+except ImportError:
+    subprocess.check_call(["pip", "install", "scikit-learn"])
+    from sklearn.linear_model import LogisticRegression
 st.set_page_config(page_title="Fake News Detector", layout="wide")
 st.title("📰 Fake News Detection App (BERT + LIME + Streamlit)")
 
